@@ -31,7 +31,38 @@
     }
   </style>
 </head>
-<body style="width:900px;">
+<body style="width:900px;margin:auto;">
+  <script>
+  function LinkColor(color){
+    var category = document.querySelectorAll('a');
+    var i = 0;
+    while (i < category.length) {
+      category[i].style.color = color;
+      i = i + 1;
+    }
+  }
+  function nightdayhandler(self){
+    var main = document.querySelector('body')
+    if (self.value === 'night'){
+      main.style.backgroundColor = 'black';
+      main.style.color = 'white';
+      self.value = 'day';
+
+    LinkColor('white')
+
+    } else {
+      main.style.backgroundColor = 'white';
+      main.style.color = 'black';
+      self.value = 'night';
+
+    LinkColor('black')
+    }
+
+}
+</script>
+    <input id="night_day" type="button" value="night" onclick="
+      nightdayhandler(this)
+    ">
     <div id="main">
       <div id="title">
         <a href="https://woody9629.github.io/Blank_City/"><h1 style="margin-top:10px;margin-bottom:10px;">Blank City</h1></a>

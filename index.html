@@ -4,34 +4,65 @@
   <meta charset="utf-8">
   <title>Blank City</title>
   <style>
-    #title {
+  #title {
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid gray;
+  border-bottom:5px solid gray;
+  }
+  #grid_category {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin:10px;
+    border:1px solid gray;
+    margin:0px;
     text-align: center;
-    font-size: 20px;
-    border: 1px solid gray;
-    border-bottom:5px solid gray;
-    }
-    #grid_category {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      margin:10px;
-      border:1px solid gray;
-      margin:0px;
-      text-align: center;
-      font-size: 15px;
-    }
-    #profile_woody {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      border-left: 1px solid gray;
-      border-right: 1px solid gray;
-    }
-    a {
-      text-decoration: none;
-      color: black;
-    }
+    font-size: 15px;
+  }
+  #profile_woody {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
   </style>
 </head>
-<body style="width:900px;">
+<body style="width:900px;margin:auto;">
+  <script>
+  function LinkColor(color){
+    var category = document.querySelectorAll('a');
+    var i = 0;
+    while (i < category.length) {
+      category[i].style.color = color;
+      i = i + 1;
+    }
+  }
+  function nightdayhandler(self){
+    var main = document.querySelector('body')
+    if (self.value === 'night'){
+      main.style.backgroundColor = 'black';
+      main.style.color = 'white';
+      self.value = 'day';
+
+    LinkColor('white')
+
+    } else {
+      main.style.backgroundColor = 'white';
+      main.style.color = 'black';
+      self.value = 'night';
+
+    LinkColor('black')
+    }
+
+}
+</script>
+    <input id="night_day" type="button" value="night" onclick="
+      nightdayhandler(this)
+    ">
     <div id="main">
       <div id="title">
         <a href="https://woody9629.github.io/Blank_City/"><h1 style="margin-top:10px;margin-bottom:10px;">Blank City</h1></a>
@@ -49,18 +80,16 @@
         </div>
       </div>
       <div id="grid_category">
-        <div id="Like" style="border-right:1px solid gray; border-bottom:4px solid gray;">
+        <div id="Like" style="border-right:1px solid gray;">
           <a href="https://woody9629.github.io/Blank_City/"><h2>Like</h2></a></div>
-        <div id="Daily">
+        <div id="Daily" style="border-bottom:4px solid gray;">
           <a href="https://woody9629.github.io/Blank_City/daily.html"><h2>Daily</h2></a></div>
         <div id="Color"style="border-left:1px solid gray;">
           <a href="https://woody9629.github.io/Blank_City/color.html"><h2>Color</h2></a></div>
       </div>
-      <div id="cotents">
         <iframe width="900" height="506" src="https://www.youtube.com/embed/dchrcMWjMmU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <iframe width="900" height="506" src="https://www.youtube.com/embed/CxahbnUCZxY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <iframe width="900" height="506" src="https://www.youtube.com/embed/wCWoUUWwdqg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-    </div>
 </body>
 </html>
